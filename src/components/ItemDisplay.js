@@ -1,5 +1,8 @@
 import IndividualItem from "./IndividualItem.js";
 import { ItemList } from "../helpers/ItemList.js";
+import SearchBar from "../components/SearchBar";
+import { allMatches } from "../components/SearchBar";
+//import { MatchList } from "../components/SearchBar";
 import "../styles/ItemDisplay.css";
 
 const itemRarities = [
@@ -43,14 +46,23 @@ function itemsToDisplay(item, rankWanted) {
 
 function ItemDisplay() {
     return (
-        <div className="itemListWrapper">
-            {/* Mythic Items */}
-            {itemRarities.map((rank) => {
-                console.log(rank);
-                return <> {renderItems(rank)} </>;
-            })}
-        </div>
+        <>
+            <SearchBar />
+            <button onClick={findMatches}>Click </button>
+            <div className="itemListWrapper">
+                {/* Items */}
+                {itemRarities.map((rank) => {
+                    return <> {renderItems(rank)} </>;
+                })}
+            </div>
+
+        </>
     );
+}
+
+function findMatches() {
+    console.log("found ya");
+    console.log(allMatches);
 }
 
 export default ItemDisplay;

@@ -8,3 +8,15 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.itemList img {
+    margin: 10px;
+    width: 72px;
+    height: 72px;
+    transition: transform .2s;
+}
+
+.itemList img:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+}
