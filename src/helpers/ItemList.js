@@ -1,4 +1,4 @@
-import data from "../itemInfo.json";
+import data from "./itemInfo.json";
 
 
 function createItemList() {

@@ -1,5 +1,5 @@
-import ItemDisplay from "./components/ItemDisplay";
-import { SearchBar, GetMatches, GetSetText } from "./components/SearchBar";
+import SearchAndDisplay from "./components/SearchAndDisplay.js";
+import "./styles/ItemDisplay.css";
 
 
 function clearConsole() {
@@ -10,15 +10,14 @@ function App() {
 
     return (
         <div>
-            <h1>
-                Hello Boss
-            </h1>
-
             <button onClick={clearConsole}>
                 Clear Console
             </button>
 
-            <ItemDisplay />
+            <SearchAndDisplay />
+            {/* <SearchComponent /> */}
+
+            {/* <ItemDisplay /> */}
         </div >
 
     );
