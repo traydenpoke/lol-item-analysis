@@ -1,31 +1,37 @@
-.itemList {
+.itemList,
+.inventoryItemList,
+.inventoryItems {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     list-style: none;
 }
 
-.itemList img {
+.itemList img,
+.inventoryItemList img,
+.inventoryItems img {
     margin: 4px;
-    width: 72px;
-    height: 72px;
+    width: 48px;
+    height: 48px;
     transition: transform .2s;
     border-radius: 5px;
     border: 3.5px solid;
 }
 
-.itemList img:hover {
+.itemList img:hover,
+.inventoryItemList img:hover,
+.inventoryItems img:hover {
     transform: scale(1.15);
     cursor: pointer;
 }
 
-.ornnItemList img,
-.mythicItemList img {
+.mythicItem img {
     border-color: #dfbf0b;
 }
 
 h1 {
     text-align: center;
+    font-size: 24px;
 }
 
 body::-webkit-scrollbar {
@@ -33,6 +39,12 @@ body::-webkit-scrollbar {
 }
 
 .searchBar {
+    text-align: center;
+}
+
+.clearInventoryButton,
+.logStats,
+.clearSearchBar {
     text-align: center;
 }
 

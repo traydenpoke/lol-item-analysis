@@ -2,13 +2,22 @@ import data from "./itemInfo.json";
 
 
 function createItemList() {
-    const items = [];
+    const itemsSorted = {
+        "ORNN": [],
+        "MYTHIC": [],
+        "LEGENDARY": [],
+        "EPIC": [],
+        "BASIC": [],
+        "STARTER": [],
+        "BOOTS": []
+    };
 
     data.forEach((item) => {
-        items.push(item);
+        const rank = item['rank'];
+        itemsSorted[rank].push(item);
     });
 
-    return items;
+    return itemsSorted;
 }
 
 export const ItemList = createItemList();
