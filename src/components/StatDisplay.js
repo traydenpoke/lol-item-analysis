@@ -1,11 +1,16 @@
+import "../styles/StatText.css";
+import { StatNames } from "../helpers/StatInfo";
+
 const StatDisplay = ({ curItemsList }) => {
     const uniqueStats = {};
 
+    // store stat:value pairs in uniqueStats, totals stats from all items
     if (curItemsList.length === 0) {
         console.log(`Empty inventory.`);
     } else {
         curItemsList.forEach((item) => {
             item.stats.forEach((stat) => {
+                console.log(stat);
                 if (stat[0] in uniqueStats) {
                     uniqueStats[stat[0]] += stat[1];
                 } else {
@@ -15,58 +20,64 @@ const StatDisplay = ({ curItemsList }) => {
         });
     }
 
-    const statNames = {
-        "attackDamage": "Attack Damage",
-        "attackSpeed": "Attack Speed",
-        "omnivamp": "Omnivamp",
-        "lifesteal": "Lifesteal",
-        "criticalStrikeChance": "Critical Strike Chance",
-        "lethality": "Lethality",
-        "armorPenetrationPercent": "% Armor Penetration",
-        "abilityPower": "Ability Power",
-        "magicPenetration": "Flat Magic Penetration",
-        "magicPenetrationPercent": "% Magic Penetration",
-        "magicResistance": "Magic Resistance",
-        "abilityHaste": "Ability Haste",
-        "movespeed": "Movement Speed",
-        "movespeedPercent": "% Movement Speed",
-        "healAndShieldPower": "Heal and Shield Power",
-        "armor": "Armor",
-        "health": "Health",
-        "healthRegen": "Health Regen",
-        "mana": "Mana",
-        "manaRegen": "Mana Regen",
-        "goldPer10": "Gold Per 10s"
-    };
-
-    Object.keys(statNames).forEach((stat) => {
+    Object.keys(StatNames).forEach((stat) => {
         if (stat in uniqueStats) {
-            console.log(`${statNames[stat]}: ${uniqueStats[stat]}`);
+            console.log(`${StatNames[stat]}: ${uniqueStats[stat]}`);
         }
     });
+
+    const goldCost = () => {
+        let goldCost = 0;
+        curItemsList.forEach((item) => {
+            goldCost += item.gold;
+        });
+
+        return (
+            <>
+                <p>
+                    Gold Cost:
+                </p>
+                <p>
+                    {goldCost}
+                </p>
+            </>
+        );
+    };
 
 
 
     return (
         <>
             <h1>Stat Display</h1>
-            <div className="statList">
-                <p>test</p>
-                {Object.keys(statNames).map((stat) => {
-                    if (uniqueStats[stat] !== undefined) {
-                        return (
-                            <p key={stat}>
-                                {`${statNames[stat]}: ${uniqueStats[stat]}`}
-                            </p>
-                        );
-                    } else {
-                        return (
-                            <p key={stat}>
-                                {`${statNames[stat]}: 0`}
-                            </p>
-                        );
-                    }
-                })}
+            <div className="center">
+                <div className="statTextList">
+                    {Object.keys(StatNames).map((stat) => {
+                        if (uniqueStats[stat] !== undefined) {
+                            return (
+                                <>
+                                    <p>
+                                        {`${StatNames[stat]}:`}
+                                    </p>
+                                    <p>
+                                        {`${uniqueStats[stat]}`}
+                                    </p>
+                                </>
+                            );
+                        } else {
+                            return (
+                                <>
+                                    <p>
+                                        {`${StatNames[stat]}:`}
+                                    </p>
+                                    <p>
+                                        0
+                                    </p>
+                                </>
+                            );
+                        }
+                    })}
+                    {goldCost()}
+                </div>
             </div>
         </>
     );

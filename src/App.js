@@ -1,4 +1,4 @@
-import SearchAndDisplay from "./components/SearchAndDisplay.js";
+import ItemDisplay from "./pages/ItemDisplay.js";
 import "./styles/ItemDisplay.css";
 
 
@@ -14,10 +14,7 @@ function App() {
                 Clear Console
             </button>
 
-            <SearchAndDisplay />
-            {/* <SearchComponent /> */}
-
-            {/* <ItemDisplay /> */}
+            <ItemDisplay />
         </div >
 
     );

@@ -1,3 +1,8 @@
+.centerItems {
+    width: 75%;
+    margin: auto;
+}
+
 .itemList,
 .inventoryItemList,
 .inventoryItems {
@@ -11,11 +16,16 @@
 .inventoryItemList img,
 .inventoryItems img {
     margin: 4px;
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     transition: transform .2s;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 3.5px solid;
+}
+
+.inventoryItems img {
+    width: 96px;
+    height: 96px;
 }
 
 .itemList img:hover,

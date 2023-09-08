@@ -1,0 +1,11 @@
+.statTextList {
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 20vw 20vw);
+    grid-template-rows: repeat(11, 5vh);
+}
+
+.center {
+    width: 60%;
+    margin: auto;
+}
