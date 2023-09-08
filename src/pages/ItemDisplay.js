@@ -4,6 +4,7 @@ import Buttons from "../components/Buttons";
 import InventoryDisplay from "../components/InventoryDisplay";
 import StatDisplay from "../components/StatDisplay";
 import FilterLists from "../helpers/FilterLists";
+import "../styles/SearchBar.css";
 
 
 function SearchAndDisplay() {
@@ -37,6 +38,7 @@ function SearchAndDisplay() {
         });
     }
 
+    // can i combine this with above somehow?
     const filteredList = [
         [filteredOrnn, setFilteredOrnn, "ORNN"],
         [filteredMythic, setFilteredMythic, "MYTHIC"],
@@ -68,7 +70,7 @@ function SearchAndDisplay() {
         return (item.rank === "ORNN" || item.rank === "MYTHIC");
     }
 
-    const testOnClick = (item) => {
+    const modifyInventory = (item) => {
 
         // if item clicked is already in inventory, remove it
         //     if the item is a mythic, set to no mythics
@@ -117,33 +119,29 @@ function SearchAndDisplay() {
             <li key={idx}>
                 {isMythicItem(item) ? (
                     <div className="mythicItem">
-                        <img src={item.img} alt={item.name} onClick={() => testOnClick(item)} />
+                        <img src={item.img} alt={item.name} onClick={() => modifyInventory(item)} />
                     </div>
                 ) : (
-                    <img src={item.img} alt={item.name} onClick={() => testOnClick(item)} />
+                    <img src={item.img} alt={item.name} onClick={() => modifyInventory(item)} />
                 )}
             </li>
         );
     };
 
     return (
-        <div>
+        <>
             <InventoryDisplay
                 curItemsList={curItemsList}
                 createListItem={createListItem}
             />
             <StatDisplay curItemsList={curItemsList} />
-
-            <h1>Search Component</h1>
-            <div className="centerItems">
-                <div className="searchBar">
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        value={query}
-                        onChange={handleInputChange}
-                    />
-                </div>
+            <div className="searchBar">
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    value={query}
+                    onChange={handleInputChange}
+                />
             </div>
             <Buttons
                 curItemsList={curItemsList}
@@ -154,25 +152,22 @@ function SearchAndDisplay() {
                 handleInputChange={handleInputChange}
             />
 
-            <ul>
-                <div className="centerItems">
-                    {filteredList.map((list, index) => {
-                        return (
-                            <div key={index}>
-                                <h1>{list[2]}</h1>
-                                <div className="itemList">
-                                    {list[0].map((item, itemIndex) => {
-                                        console.log(item);
-                                        return createListItem(item, itemIndex);
-                                    })}
-                                </div>
+            <ul class="nobullets">
+                {filteredList.map((list, index) => {
+                    return (
+                        <div key={index}>
+                            <h1>{list[2]}</h1>
+                            <div className="itemList">
+                                {list[0].map((item, itemIndex) => {
+                                    return createListItem(item, itemIndex);
+                                })}
                             </div>
-                        );
-                    })}
-                </div>
+                        </div>
+                    );
+                })}
             </ul>
 
-        </div>
+        </>
     );
 }
 
