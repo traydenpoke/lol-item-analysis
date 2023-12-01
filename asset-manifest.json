@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/lol-item-analysis/static/css/main.5760cc24.css",
-    "main.js": "/lol-item-analysis/static/js/main.a3a7ba36.js",
+    "main.css": "/lol-item-analysis/static/css/main.bc120d91.css",
+    "main.js": "/lol-item-analysis/static/js/main.e47c481b.js",
     "index.html": "/lol-item-analysis/index.html",
     "static/media/none.webp": "/lol-item-analysis/static/media/none.17f65b3c3619f635571b.webp",
-    "main.5760cc24.css.map": "/lol-item-analysis/static/css/main.5760cc24.css.map",
-    "main.a3a7ba36.js.map": "/lol-item-analysis/static/js/main.a3a7ba36.js.map"
+    "main.bc120d91.css.map": "/lol-item-analysis/static/css/main.bc120d91.css.map",
+    "main.e47c481b.js.map": "/lol-item-analysis/static/js/main.e47c481b.js.map"
   },
   "entrypoints": [
-    "static/css/main.5760cc24.css",
-    "static/js/main.a3a7ba36.js"
+    "static/css/main.bc120d91.css",
+    "static/js/main.e47c481b.js"
   ]
 }
