@@ -1,8 +1,8 @@
 .statTextList {
-    font-size: 20px;
+    font-size: 16px;
     display: grid;
     grid-template-columns: repeat(2, 20vw 20vw);
-    grid-template-rows: repeat(11, 4vh);
+    grid-template-rows: repeat(11, 3.5vh);
 }
 
 .center {
