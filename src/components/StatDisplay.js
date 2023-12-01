@@ -44,8 +44,6 @@ const StatDisplay = ({ curItemsList }) => {
         );
     };
 
-
-
     return (
         <>
             <h1>Stat Display</h1>
@@ -81,9 +79,6 @@ const StatDisplay = ({ curItemsList }) => {
             </div>
         </>
     );
-
-
-    //console.log(uniqueStats);
 };
 
 export default StatDisplay;

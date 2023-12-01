@@ -128,6 +128,18 @@ function SearchAndDisplay() {
         );
     };
 
+    function showHideItems(listRank) {
+
+        const x = document.getElementById(`${listRank}-items`);
+
+        if (x.style.display === "none") {
+            x.style.display = "flex";
+        } else {
+            x.style.display = "none";
+        }
+
+    }
+
     return (
         <>
             <InventoryDisplay
@@ -152,15 +164,22 @@ function SearchAndDisplay() {
                 handleInputChange={handleInputChange}
             />
 
-            <ul class="nobullets">
+            <ul className="nobullets">
                 {filteredList.map((list, index) => {
                     return (
                         <div key={index}>
-                            <h1>{list[2]}</h1>
-                            <div className="itemList">
-                                {list[0].map((item, itemIndex) => {
-                                    return createListItem(item, itemIndex);
-                                })}
+                            <button
+                                className="showHideButton"
+                                onClick={() => showHideItems(list[2])}
+                            >
+                                {list[2]}
+                            </button>
+                            <div id={`${list[2]}-items`} >
+                                <div className="itemList">
+                                    {list[0].map((item, itemIndex) => {
+                                        return createListItem(item, itemIndex);
+                                    })}
+                                </div>
                             </div>
                         </div>
                     );
